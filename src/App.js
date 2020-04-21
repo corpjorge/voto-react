@@ -1,13 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './Componentes/assets/css/bootstrap.min.css';
 import './Componentes/assets/css/now-ui-kit.css';
 import Nav from './Componentes/Nav';
 import Banner from "./Componentes/Banner";
-import Main from "./Componentes/Main";
+import Inicio from "./Paginas/Inicio";
+import Doc from "./Paginas/Doc";
 
 function App() {
+
   return (
       <body className="index-page sidebar-collapse">
+      <Router>
         <Nav/>
         <div className="wrapper">
             <Banner />
@@ -16,21 +20,15 @@ function App() {
         <br />
         <br />
         <br />
-        <div className="main">
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <Main/>
-                    </div>
-                    <div className="col">
-                        <Main/>
-                    </div>
-                    <div className="col">
-                        <Main/>
-                    </div>
-                 </div>
-            </div>
-        </div>
+            <Switch>
+                <Route path="/" exact>
+                    <Inicio />
+                </Route>
+                <Route path="/doc">
+                    <Doc/>
+                </Route>
+            </Switch>
+        </Router>
       </body>
   );
 }

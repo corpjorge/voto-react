@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './assets/css/rotating-card.css';
-//import './assets/css/pe-icon-7-stroke.css';
 import julie from './assets/img/julie.jpg'
 import azul from './assets/img/azul.png'
+import BotonVotar from "./BotonVotar";
 
-function Main() {
-    return (
+class Main extends Component {
+    // eslint-disable-next-line no-useless-constructor
+    constructor(props){
+        super(props);
+        this.state = {
+            nombre: 0
+        };
+    }
+    render() {
+        return (
             <div className="card-container">
                 <div className="card">
                     <div className="front">
@@ -13,7 +21,7 @@ function Main() {
                             <img src={azul}/>
                         </div>
                         <div className="user">
-                            <img className="img-circle" src={julie} />
+                            <img className="img-circle" src={julie}/>
                         </div>
                         <div className="content">
                             <div className="main">
@@ -35,8 +43,10 @@ function Main() {
                         <div className="content">
                             <div className="main">
                                 <h4 className="text-center">Job Description</h4>
-                                <p className="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many
-                                    others...</p>
+                                <p className="text-center">
+                                    <BotonVotar nombre={this.props.nombre}/>
+                                    {this.props.nombre}
+                                </p>
 
                                 <div className="stats-container">
                                     <div className="stats">
@@ -75,7 +85,8 @@ function Main() {
                 </div>
             </div>
 
-    )
+        )
+    }
 }
 export default Main;
 
