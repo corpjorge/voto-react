@@ -51,7 +51,7 @@ class Inicio extends Component {
                 });
         })
 
- 
+
 
         return (
             <div className="main">
